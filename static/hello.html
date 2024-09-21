@@ -1,0 +1,84 @@
+</head>
+@@ -40,9 +96,82 @@
+    <div class="sidebar">
+        <button type="submit" id="logoutLink" class="logout">Logout</button>
+    </div>
+    <div style="margin-left: 260px; padding: 20px;">
+    <div class="container">
+        <h1>Welcome to the Dashboard</h1>
+        <button class="add-user-button" onclick="openAddUserModal()">Add User</button>
+        <form id="filterForm" class="filter-form">
+            <label for="filterField">Filter by:</label>
+            <select id="filterField" name="filterField">
+                <option value="firstname">First Name</option>
+                <option value="lastname">Last Name</option>
+                <option value="email">Email</option>
+            </select>
+            <input type="text" id="filterValue" name="filterValue" placeholder="Enter filter value">
+            <button type="submit">Filter</button>
+        </form>
+        <table class="user-table" id="userTable">
+            <thead>
+                <tr>
+                    <th data-field="firstname" onclick="sortAndFilterTable(0)">First Name &uarr;&darr;</th>
+                    <th data-field="lastname" onclick="sortAndFilterTable(1)">Last Name &uarr;&darr;</th>
+                    <th data-field="email" onclick="sortAndFilterTable(2)">Email &uarr;&darr;</th>
+                    <th data-field="created_at" onclick="sortAndFilterTable(3)">Created At &uarr;&darr;</th>
+                    <th data-field="last_login_at" onclick="sortAndFilterTable(4)">Last Login At &uarr;&darr;</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                <!-- User rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddUserModal()">&times;</span>
+            <form id="addUserForm">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" required>
+                <br>
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="is_active">Active:</label>
+                <input type="checkbox" id="is_active" name="is_active">
+                <br>
+                <button type="submit">Add User</button>
+            </form>
+        </div>
+    </div>
+    <!-- Edit User Modal -->
+    <div id="editUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditUserModal()">&times;</span>
+            <form id="editUserForm">
+                <input type="hidden" id="editUserId" name="id">
+                <label for="editFirstname">First Name:</label>
+                <input type="text" id="editFirstname" name="firstname" required>
+                <br>
+                <label for="editLastname">Last Name:</label>
+                <input type="text" id="editLastname" name="lastname" required>
+                <br>
+                <label for="editEmail">Email:</label>
+                <input type="email" id="editEmail" name="email" required>
+                <br>
+                <label for="editIsActive">Active:</label>
+                <input type="checkbox" id="editIsActive" name="is_active">
+                <br>
+                <button type="submit">Save Changes</button>
+                <button type="button" onclick="resetPassword()">Reset Password</button>
+                <button type="button" onclick="deleteUser()">Delete User</button>
+            </form>
+        </div>
+    </div>
+    <script src="/static/dashboard.js"></script>
+    <script src="/static/dashboard.js" defer></script>
+</body>
+</html>
