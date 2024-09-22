@@ -80,7 +80,7 @@ def get_credentials():
             creds = pickle.load(token)
     if not creds or not creds.valid:
         flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRETS_FILE, SCOPES)
-        creds = flow.run_local_server(port=8000)
+        creds = flow.run_local_server(port=10000)
         with open(TOKEN_FILE, 'wb') as token:
             pickle.dump(creds, token)
     return creds
